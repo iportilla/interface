@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <title>Advanced Lab — Interactive Tables</title>
+    <style>
+      body { font-family: sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; background: #eaf4fb; }
+      h1 { color: #1f2328; }
+      h2 { margin-top: 0; color: #2c3e50; }
+      .section { border: 1px solid #e0e4ea; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; }
+      .section.blue { background: #eaf4fb; border-color: #b8d9f0; }
+      .section.gray { background: #f4f5f7; border-color: #d6d9de; }
+      table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+      th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+      th { background: #dde3ea; color: #2c3e50; }
+      tr:nth-child(even) { background: #f0f3f6; }
+      tr:hover { background: #e6edf5; }
+      .selected-summary { background: #eaf4fb; border: 1px solid #b8d9f0; border-radius: 6px; padding: 12px 16px; margin-top: 12px; font-size: 0.95em; }
+      .selected-summary span { display: inline-block; background: #d0e8f8; border-radius: 4px; padding: 2px 8px; margin: 2px 4px 2px 0; }
+      .nav { font-size: 0.9em; margin-bottom: 24px; }
+      .nav a { color: #3b82d4; text-decoration: none; margin-right: 12px; }
+      .nav a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html">← Back to Labs</a>
+      <a href="medium.html">← Medium</a>
+    </nav>
+
+    <h1>Advanced Lab — Interactive Tables</h1>
+    <p>This lab uses JavaScript to drive table interactions: single-select (radio) drills into quarterly data, multi-select (checkboxes) builds a live comparison table.</p>
+
+    <!-- Countries - Single Select (radio) -->
+    <div class="section blue">
+      <h2>Countries, Capitals &amp; Sales — Single Select</h2>
+      <p>Select a country to see its quarterly sales breakdown:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Country</th>
+            <th>Capital</th>
+            <th>Total Sales ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="radio" name="country" value="usa" /></td>
+            <td>United States</td><td>Washington D.C.</td><td>$1,240,500</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="uk" /></td>
+            <td>United Kingdom</td><td>London</td><td>$876,300</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="germany" /></td>
+            <td>Germany</td><td>Berlin</td><td>$934,750</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="japan" /></td>
+            <td>Japan</td><td>Tokyo</td><td>$1,105,200</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="brazil" /></td>
+            <td>Brazil</td><td>Brasília</td><td>$612,400</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="australia" /></td>
+            <td>Australia</td><td>Canberra</td><td>$748,900</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="canada" /></td>
+            <td>Canada</td><td>Ottawa</td><td>$819,600</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="country" value="india" /></td>
+            <td>India</td><td>New Delhi</td><td>$990,100</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="detail-section" style="display:none; margin-top:16px;">
+        <h2 id="detail-title">Sales Breakdown</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Quarter</th>
+              <th>Product</th>
+              <th>Units Sold</th>
+              <th>Revenue ($)</th>
+            </tr>
+          </thead>
+          <tbody id="detail-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Countries - Multi Select (checkbox) -->
+    <div class="section gray">
+      <h2>Countries, Capitals &amp; Sales — Multi Select</h2>
+      <p>Check multiple countries to compare their total sales:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Country</th>
+            <th>Capital</th>
+            <th>Total Sales ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="usa" /></td>
+            <td>United States</td><td>Washington D.C.</td><td>$1,240,500</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="uk" /></td>
+            <td>United Kingdom</td><td>London</td><td>$876,300</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="germany" /></td>
+            <td>Germany</td><td>Berlin</td><td>$934,750</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="japan" /></td>
+            <td>Japan</td><td>Tokyo</td><td>$1,105,200</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="brazil" /></td>
+            <td>Brazil</td><td>Brasília</td><td>$612,400</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="australia" /></td>
+            <td>Australia</td><td>Canberra</td><td>$748,900</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="canada" /></td>
+            <td>Canada</td><td>Ottawa</td><td>$819,600</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="mcountry" value="india" /></td>
+            <td>India</td><td>New Delhi</td><td>$990,100</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="multi-detail-section" style="display:none; margin-top:16px;">
+        <h2>Selected Countries</h2>
+        <div class="selected-summary" id="multi-summary"></div>
+        <table style="margin-top:12px;">
+          <thead>
+            <tr>
+              <th>Country</th>
+              <th>Capital</th>
+              <th>Total Sales ($)</th>
+            </tr>
+          </thead>
+          <tbody id="multi-detail-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      const salesData = {
+        usa:       [['Q1','Widgets',4200,'$310,000'],['Q2','Gadgets',3800,'$295,000'],['Q3','Widgets',5100,'$381,500'],['Q4','Services',3500,'$254,000']],
+        uk:        [['Q1','Gadgets',2900,'$218,000'],['Q2','Widgets',2400,'$187,000'],['Q3','Services',2800,'$210,000'],['Q4','Gadgets',3500,'$261,300']],
+        germany:   [['Q1','Widgets',3100,'$234,000'],['Q2','Services',2700,'$202,500'],['Q3','Gadgets',3300,'$248,000'],['Q4','Widgets',3350,'$250,250']],
+        japan:     [['Q1','Gadgets',4100,'$307,000'],['Q2','Widgets',3700,'$277,500'],['Q3','Services',3900,'$292,500'],['Q4','Gadgets',3050,'$228,200']],
+        brazil:    [['Q1','Widgets',2100,'$157,500'],['Q2','Gadgets',1900,'$142,500'],['Q3','Widgets',2300,'$172,500'],['Q4','Services',1870,'$139,900']],
+        australia: [['Q1','Services',2500,'$187,500'],['Q2','Gadgets',2200,'$165,000'],['Q3','Widgets',2600,'$195,000'],['Q4','Services',2700,'$201,400']],
+        canada:    [['Q1','Widgets',2700,'$202,500'],['Q2','Services',2400,'$180,000'],['Q3','Gadgets',2900,'$217,500'],['Q4','Widgets',2920,'$219,600']],
+        india:     [['Q1','Gadgets',3400,'$255,000'],['Q2','Widgets',3200,'$240,000'],['Q3','Services',3600,'$270,000'],['Q4','Gadgets',3100,'$225,100']]
+      };
+
+      const countryMeta = {
+        usa:       { name:'United States',  capital:'Washington D.C.', total:'$1,240,500' },
+        uk:        { name:'United Kingdom', capital:'London',          total:'$876,300'   },
+        germany:   { name:'Germany',        capital:'Berlin',          total:'$934,750'   },
+        japan:     { name:'Japan',          capital:'Tokyo',           total:'$1,105,200' },
+        brazil:    { name:'Brazil',         capital:'Brasília',        total:'$612,400'   },
+        australia: { name:'Australia',      capital:'Canberra',        total:'$748,900'   },
+        canada:    { name:'Canada',         capital:'Ottawa',          total:'$819,600'   },
+        india:     { name:'India',          capital:'New Delhi',       total:'$990,100'   }
+      };
+
+      // Single-select: radio -> quarterly breakdown
+      document.querySelectorAll('input[name="country"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          const key = this.value;
+          const tbody = document.getElementById('detail-body');
+          tbody.innerHTML = '';
+          salesData[key].forEach(function(row) {
+            const tr = document.createElement('tr');
+            row.forEach(function(cell) {
+              const td = document.createElement('td');
+              td.textContent = cell;
+              tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+          });
+          document.getElementById('detail-title').textContent = countryMeta[key].name + ' — Sales Breakdown';
+          document.getElementById('detail-section').style.display = 'block';
+        });
+      });
+
+      // Multi-select: checkboxes -> comparison table
+      document.querySelectorAll('input[name="mcountry"]').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+          const checked = Array.from(document.querySelectorAll('input[name="mcountry"]:checked'));
+          const section = document.getElementById('multi-detail-section');
+          if (checked.length === 0) { section.style.display = 'none'; return; }
+
+          document.getElementById('multi-summary').innerHTML = checked.map(function(c) {
+            return '<span>' + countryMeta[c.value].name + '</span>';
+          }).join('');
+
+          const tbody = document.getElementById('multi-detail-body');
+          tbody.innerHTML = '';
+          checked.forEach(function(c) {
+            const m = countryMeta[c.value];
+            const tr = document.createElement('tr');
+            [m.name, m.capital, m.total].forEach(function(cell) {
+              const td = document.createElement('td');
+              td.textContent = cell;
+              tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+          });
+
+          section.style.display = 'block';
+        });
+      });
+    </script>
+  </body>
+</html>

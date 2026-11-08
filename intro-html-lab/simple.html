@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Simple Lab — Basic Inputs</title>
+    <style>
+      body { font-family: sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; background: #f4f5f7; }
+      h1 { color: #1f2328; }
+      h2 { margin-top: 0; color: #2c3e50; }
+      label { display: block; margin-bottom: 6px; }
+      input[type="text"], textarea { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ced4da; border-radius: 4px; background: #ffffff; }
+      textarea { resize: vertical; }
+      .group { margin-bottom: 8px; }
+      .section { border: 1px solid #e0e4ea; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; }
+      .section.white { background: #ffffff; }
+      .section.gray  { background: #f4f5f7; border-color: #d6d9de; }
+      .nav { font-size: 0.9em; margin-bottom: 24px; }
+      .nav a { color: #3b82d4; text-decoration: none; margin-right: 12px; }
+      .nav a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html">← Back to Labs</a>
+      <a href="medium.html">Medium →</a>
+    </nav>
+
+    <h1>Simple Lab — Basic Inputs</h1>
+    <p>This lab covers the three most fundamental HTML form elements: a text field, a checklist, and a multi-line text area.</p>
+
+    <!-- Text Field -->
+    <div class="section gray">
+      <h2>Text Field</h2>
+      <p>A single-line <code>&lt;input type="text"&gt;</code> for short text entry.</p>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" />
+    </div>
+
+    <!-- Checklist -->
+    <div class="section white">
+      <h2>Checklist</h2>
+      <p>Checkboxes let users select multiple options independently using <code>&lt;input type="checkbox"&gt;</code>.</p>
+      <p>Select your interests:</p>
+      <div class="group">
+        <label><input type="checkbox" name="interest" value="coding" /> Coding</label>
+        <label><input type="checkbox" name="interest" value="design" /> Design</label>
+        <label><input type="checkbox" name="interest" value="data" /> Data Science</label>
+        <label><input type="checkbox" name="interest" value="devops" /> DevOps</label>
+      </div>
+    </div>
+
+    <!-- Multi-line Text Area -->
+    <div class="section gray">
+      <h2>Multi-line Text Area</h2>
+      <p>A <code>&lt;textarea&gt;</code> accepts longer, multi-line text. It can be resized by the user.</p>
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="comments" rows="5" placeholder="Enter your comments here..."></textarea>
+    </div>
+  </body>
+</html>

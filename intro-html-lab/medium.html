@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Medium Lab — Radio Buttons &amp; JS</title>
+    <style>
+      body { font-family: sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; transition: background-color 0.3s; }
+      h1 { color: #1f2328; }
+      h2 { margin-top: 0; color: #2c3e50; }
+      label { display: block; margin-bottom: 6px; }
+      .group { margin-bottom: 8px; }
+      .section { border: 1px solid #e0e4ea; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; }
+      .section.blue { background: #eaf4fb; border-color: #b8d9f0; }
+      .nav { font-size: 0.9em; margin-bottom: 24px; }
+      .nav a { color: #3b82d4; text-decoration: none; margin-right: 12px; }
+      .nav a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html">← Back to Labs</a>
+      <a href="simple.html">← Simple</a>
+      <a href="advanced.html">Advanced →</a>
+    </nav>
+
+    <h1>Medium Lab — Radio Buttons &amp; JS</h1>
+    <p>Radio buttons (<code>&lt;input type="radio"&gt;</code>) let users pick exactly one option from a group. This lab connects them to JavaScript to change the page background color in real time.</p>
+
+    <!-- Radio Buttons - Favorite Color -->
+    <div class="section blue">
+      <h2>Favorite Color</h2>
+      <p>Pick your favorite color to change the page background:</p>
+      <div class="group">
+        <label><input type="radio" name="color" value="#f4f5f7" /> Gray</label>
+        <label><input type="radio" name="color" value="#ffffff" /> White</label>
+        <label><input type="radio" name="color" value="#eaf4fb" checked /> Light Blue</label>
+        <label><input type="radio" name="color" value="#ff6b6b" /> Red</label>
+        <label><input type="radio" name="color" value="#51cf66" /> Green</label>
+        <label><input type="radio" name="color" value="#74c0fc" /> Blue</label>
+        <label><input type="radio" name="color" value="#ffd43b" /> Yellow</label>
+        <label><input type="radio" name="color" value="#ff922b" /> Orange</label>
+        <label><input type="radio" name="color" value="#cc5de8" /> Purple</label>
+        <label><input type="radio" name="color" value="#f783ac" /> Pink</label>
+        <label><input type="radio" name="color" value="#20c997" /> Teal</label>
+      </div>
+    </div>
+
+    <script>
+      // Change background when a color radio is selected
+      const colorRadios = document.querySelectorAll('input[name="color"]');
+      colorRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          document.body.style.backgroundColor = this.value;
+        });
+      });
+
+      // Apply the default selected color on page load
+      const defaultColor = document.querySelector('input[name="color"]:checked');
+      if (defaultColor) {
+        document.body.style.backgroundColor = defaultColor.value;
+      }
+    </script>
+  </body>
+</html>
