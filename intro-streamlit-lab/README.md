@@ -2,11 +2,11 @@
 
 Three hands-on Streamlit apps that mirror the [HTML form labs](../intro-html-lab/), progressing from basic inputs to interactive data tables.
 
-## Labs
+## Apps
 
-| App | Difficulty | What it covers |
+| File | Difficulty | What it covers |
 |---|---|---|
-| `simple.py` | Simple | Text field, checklist (multi-select), multi-line text area |
+| `simple.py` | Simple | Text field, checklist, multi-line text area |
 | `medium.py` | Medium | Radio buttons with live CSS background-color injection |
 | `advanced.py` | Advanced | Single-select drill-down table + multi-select comparison table with bar chart |
 
@@ -20,6 +20,7 @@ Three hands-on Streamlit apps that mirror the [HTML form labs](../intro-html-lab
 ### Install dependencies
 
 ```bash
+cd intro-streamlit-lab
 pip install -r requirements.txt
 ```
 
@@ -31,7 +32,7 @@ streamlit run medium.py
 streamlit run advanced.py
 ```
 
-Each command opens the app in your browser at `http://localhost:8501`.
+Each command opens the app automatically in your browser at `http://localhost:8501`.
 
 ## Lab Descriptions
 
@@ -39,25 +40,25 @@ Each command opens the app in your browser at `http://localhost:8501`.
 
 Covers the three most fundamental form elements:
 
-- **Text field** — `st.text_input` with a live greeting
+- **Text field** — `st.text_input` with a live greeting response
 - **Checklist** — `st.multiselect` showing selected interests
-- **Multi-line text area** — `st.text_area` with word and character count
+- **Multi-line text area** — `st.text_area` with live word and character count
 
-### Medium — Radio Buttons & JS (`medium.py`)
+### Medium — Radio Buttons (`medium.py`)
 
 Demonstrates radio button groups and dynamic styling:
 
 - **Radio buttons** — `st.radio` (horizontal layout) with 11 color choices
 - **Live background** — injects a `<style>` block via `st.markdown(unsafe_allow_html=True)` to change the app background color instantly
-- **Color swatch** — displays a preview tile and hex code for the chosen color
+- **Color swatch** — displays a preview tile and the selected hex code
 
 ### Advanced — Interactive Tables (`advanced.py`)
 
 Shows how to drive table interactions with Streamlit widgets:
 
-- **Single select** — radio buttons select a country; a quarterly sales breakdown table appears immediately below
+- **Single select** — `st.radio` selects one country; a quarterly sales breakdown table renders immediately below
 - **Multi select** — `st.multiselect` picks multiple countries; a comparison table and bar chart update in real time
-- **Formatted numbers** — `st.column_config.NumberColumn` renders sales figures as `$` values
+- **Formatted numbers** — `st.column_config.NumberColumn` renders all sales figures as `$` values
 
 ## Project Structure
 
@@ -66,7 +67,8 @@ intro-streamlit-lab/
 ├── simple.py          # Basic inputs lab
 ├── medium.py          # Radio buttons + background color lab
 ├── advanced.py        # Interactive tables lab
-└── requirements.txt   # Python dependencies
+├── requirements.txt   # Python dependencies
+└── README.md          # This file
 ```
 
 ## Dependencies
