@@ -9,7 +9,7 @@ Four HTML pages that teach core HTML form elements, progressing from a landing p
 | `index.html` | — | Landing page with cards linking to each lab |
 | `simple.html` | Simple | Text field, checklist, multi-line text area |
 | `medium.html` | Medium | Radio buttons with live JavaScript background-color change |
-| `advanced.html` | Advanced | Countries & sales tables with single-select (radio) drill-down and multi-select (checkbox) comparison |
+| `advanced.html` | Advanced | Countries and sales tables with single-select drill-down and multi-select comparison |
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ Covers the three most fundamental HTML form elements with no JavaScript:
 - **Checklist** — `<input type="checkbox">` for independent multi-option selection
 - **Multi-line text area** — `<textarea>` for longer freeform input
 
-### Medium — Radio Buttons & JavaScript (`medium.html`)
+### Medium — Radio Buttons and JavaScript (`medium.html`)
 
 Introduces radio buttons and connects them to a JavaScript event listener:
 
@@ -74,5 +74,5 @@ intro-html-lab/
 | `<input type="radio">` | Medium, Advanced |
 | DOM event listeners (`addEventListener`) | Medium, Advanced |
 | Dynamic CSS via JavaScript | Medium |
-| HTML `<table>` with `<thead>` / `<tbody>` | Advanced |
+| HTML `<table>` with `<thead>` and `<tbody>` | Advanced |
 | Dynamic row generation (`createElement`) | Advanced |
