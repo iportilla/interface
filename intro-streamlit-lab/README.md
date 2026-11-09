@@ -136,5 +136,5 @@ intro-streamlit-lab/
 
 | Package | Version | Purpose |
 |---|---|---|
-| `streamlit` | >= 1.32.0 | UI framework |
+| `streamlit` | >= 1.49.0 | UI framework |
 | `pandas` | >= 2.0.0 | DataFrame handling (advanced lab) |
